@@ -1,0 +1,34 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Tag from '../../components/Tag.astro';
+import { getPosts } from '../../lib';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article>
+    <a href="/blog" class="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200">← All posts</a>
+    <header class="mt-6">
+      <FormattedDate date={post.data.pubDate} class="text-sm text-zinc-500" />
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">{post.data.title}</h1>
+      <div class="mt-4 flex flex-wrap gap-1.5">
+        {post.data.tags.map((t) => <Tag>{t}</Tag>)}
+      </div>
+    </header>
+    <div class="prose prose-zinc mt-10 max-w-none dark:prose-invert prose-a:text-emerald-700 dark:prose-a:text-emerald-400 prose-pre:bg-zinc-900">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,12 @@
+---
+import { PROFILE, SOCIALS } from '../consts';
+---
+
+<footer class="flex flex-col gap-2 border-t border-zinc-200 py-8 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between dark:border-zinc-800 dark:text-zinc-500">
+  <p>© {new Date().getFullYear()} {PROFILE.name}</p>
+  <div class="flex gap-4">
+    <a href={SOCIALS.github} target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200">GitHub</a>
+    <a href={SOCIALS.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200">LinkedIn</a>
+    <a href="/rss.xml" class="hover:text-zinc-900 dark:hover:text-zinc-200">RSS</a>
+  </div>
+</footer>
