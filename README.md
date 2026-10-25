@@ -20,7 +20,7 @@ npm run preview
 | Name, bio, skills, education, certifications, social links | `src/consts.ts` |
 | Projects (`featured: true` shows on the home page) | `src/content/projects/*.md` |
 | Blog posts | `src/content/blog/*.md` |
-| Profile photo | `public/avatar.png` |
+| Profile photo | `public/avatar.jpg` |
 | Site URL (sitemap, RSS, canonical links) | `site` in `astro.config.mjs` |
 
 ## Deploy

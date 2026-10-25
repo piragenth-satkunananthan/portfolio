@@ -6,19 +6,47 @@ export const SITE_DESCRIPTION =
 
 export const PROFILE = {
   name: 'Piragenth Satkunananthan',
-  headline: 'Embedded systems & full-stack developer',
+  headline: 'Embedded systems & full‑stack developer',
   location: 'Jaffna, Sri Lanka',
   openToWork: true,
-  avatar: '/avatar.png',
+  avatar: '/avatar.jpg',
   bio: [
     "I'm a Bachelor of ICT undergraduate at South Eastern University of Sri Lanka who likes building things end to end: from ESP32 firmware and sensor fusion on a motorcycle helmet, to production-style MERN platforms and Python automation tools.",
     'I care about systems that keep working when parts of them fail, and about using maths — especially linear algebra — to make ideas visible.',
   ],
 };
 
+// Longer story shown on the About page.
+export const ABOUT = [
+  "I'm Piragenth, a Bachelor of ICT undergraduate at South Eastern University of Sri Lanka, based in Jaffna.",
+  'I like working across the whole stack — from hardware up. On RideShield, a smart motorcycle helmet that reached the finals of IoTrix 2.0, that meant ESP32 firmware, a crash state machine driven by IMU and GPS data, camera nodes and a Kotlin Android app. On FoodBridge, it meant a MERN platform with five role-based portals, JWT authentication, Docker and CI.',
+  'Maths is the other thread. I built a Java tool that animates 2×2 matrix transformations so eigenvectors become something you can see, and completed Imperial College London’s Mathematics for Machine Learning: Linear Algebra course.',
+  'Away from the keyboard I turn photos into laser-engraved portraits and pen-plotter art with G-code.',
+  "I'm open to work, internships and collaborations — email is the best way to reach me.",
+];
+
+export const FOCUS_AREAS = [
+  {
+    title: 'Embedded & IoT',
+    description: 'ESP32 firmware, sensor fusion, state machines and fail-safe design for real hardware.',
+    project: { label: 'RideShield', href: 'https://github.com/piragenth-satkunananthan/RideShield' },
+  },
+  {
+    title: 'Full-stack web',
+    description: 'React front ends, Node/Express APIs, MongoDB, auth and role-based access, shipped with Docker and CI.',
+    project: { label: 'FoodBridge', href: 'https://github.com/piragenth-satkunananthan/foodbridge' },
+  },
+  {
+    title: 'Automation & data',
+    description: 'Scrapers, background workers and dashboards in Python with Playwright, SQLite and Streamlit.',
+    project: { label: 'eBay Price Monitor', href: 'https://github.com/piragenth-satkunananthan/Ebay-price-monitor-scraper' },
+  },
+];
+
 export const SOCIALS = {
   github: 'https://github.com/piragenth-satkunananthan',
   linkedin: 'https://www.linkedin.com/in/satkunananthan-piragenth/',
+  email: 'piragenthsatkunananthan@gmail.com',
 };
 
 export const EDUCATION = [

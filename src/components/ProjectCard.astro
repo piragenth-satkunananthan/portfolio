@@ -10,7 +10,7 @@ const { project, detailed = false } = Astro.props;
 const { title, summary, stack, repo, demo, tag, highlights } = project.data;
 ---
 
-<article class="group rounded-xl border border-zinc-200 p-5 transition hover:border-zinc-300 hover:shadow-sm dark:border-zinc-800 dark:hover:border-zinc-700">
+<article class="flex flex-col rounded-xl border border-zinc-200 p-5 transition hover:border-zinc-300 hover:shadow-sm dark:border-zinc-800 dark:hover:border-zinc-700">
   <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
     <h3 class="font-semibold text-zinc-900 dark:text-zinc-100">
       <a href={repo} target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 dark:hover:text-emerald-400">
@@ -27,11 +27,13 @@ const { title, summary, stack, repo, demo, tag, highlights } = project.data;
       </ul>
     )
   }
-  <div class="mt-4 flex flex-wrap gap-1.5">
-    {stack.map((s) => <Tag>{s}</Tag>)}
-  </div>
-  <div class="mt-4 flex gap-4 text-sm font-medium">
-    <a href={repo} target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">Source ↗</a>
-    {demo && <a href={demo} target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:underline dark:text-emerald-400">Live demo ↗</a>}
+  <div class="mt-auto pt-4">
+    <div class="flex flex-wrap gap-1.5">
+      {stack.map((s) => <Tag>{s}</Tag>)}
+    </div>
+    <div class="mt-4 flex gap-4 text-sm font-medium">
+      <a href={repo} target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">Source ↗</a>
+      {demo && <a href={demo} target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:underline dark:text-emerald-400">Live demo ↗</a>}
+    </div>
   </div>
 </article>

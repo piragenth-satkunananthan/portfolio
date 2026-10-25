@@ -1,7 +1,7 @@
 ---
 title: RideShield
 summary: A smart motorcycle-helmet safety system that detects crashes, logs a black-box record and sends emergency alerts — built so the safety core keeps working even if its cameras or AI fail.
-tag: IoTrix 2.0 · Semi-finalist
+tag: IoTrix 2.0 · Finalist
 stack: [C++, ESP32, ESP32-CAM, Kotlin, Android, Python]
 repo: https://github.com/piragenth-satkunananthan/RideShield
 featured: true

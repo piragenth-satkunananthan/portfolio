@@ -10,7 +10,7 @@ import { PROFILE } from '../consts';
       alt={PROFILE.name}
       width="80"
       height="80"
-      class="size-20 rounded-full ring-1 ring-zinc-200 dark:ring-zinc-800"
+      class="size-20 rounded-full object-cover ring-1 ring-zinc-200 dark:ring-zinc-800"
     />
     <div>
       <h1 class="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl dark:text-zinc-100">{PROFILE.name}</h1>
@@ -28,8 +28,11 @@ import { PROFILE } from '../consts';
       </p>
     </div>
   </div>
-  <div class="mt-8 space-y-4 leading-relaxed">
+  <div class="mt-8 max-w-3xl space-y-4 leading-relaxed">
     {PROFILE.bio.map((p) => <p>{p}</p>)}
+    <p>
+      <a href="/about" class="font-medium text-emerald-700 hover:underline dark:text-emerald-400">More about me →</a>
+    </p>
   </div>
   <SocialLinks class="mt-8" />
 </section>

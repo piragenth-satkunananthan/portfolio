@@ -5,7 +5,7 @@ pubDate: 2026-10-20
 tags: [embedded, esp32, iot]
 ---
 
-RideShield is a smart motorcycle helmet built for **IoTrix 2.0 (Track A: Embedded IoT Systems)**. It has cameras, it has perception goals — potholes, wet roads, vehicles closing in from behind — but the most important design decision is what happens when all of that stops working.
+RideShield is a smart motorcycle helmet built for **IoTrix 2.0 (Track A: Embedded IoT Systems)**, where it made it to the finals. It has cameras, it has perception goals — potholes, wet roads, vehicles closing in from behind — but the most important design decision is what happens when all of that stops working.
 
 ## The rule: perception is auxiliary
 
