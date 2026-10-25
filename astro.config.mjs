@@ -6,8 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // Replace with your real domain once deployed (used for sitemap, RSS and canonical URLs).
-  site: 'https://piragenth.vercel.app',
+  site: 'https://www.piragenth.dev',
   vite: {
     plugins: [tailwindcss()],
   },

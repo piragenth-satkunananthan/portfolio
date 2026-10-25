@@ -30,4 +30,4 @@ The site is fully static — no adapter needed.
 - **Vercel:** import the GitHub repo; the Astro preset is detected automatically.
 - **Netlify:** build command `npm run build`, publish directory `dist`.
 
-Then update `site` in `astro.config.mjs` to the real domain.
+Live at https://www.piragenth.dev — if the domain changes, update `site` in `astro.config.mjs`.
