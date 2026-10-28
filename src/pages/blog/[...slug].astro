@@ -17,11 +17,11 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout title={post.data.title} description={post.data.description} articleDate={post.data.pubDate}>
   <article class="mx-auto max-w-3xl">
-    <a href="/blog" class="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200">← All posts</a>
+    <a href="/blog" class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200">← All posts</a>
     <header class="mt-6">
-      <FormattedDate date={post.data.pubDate} class="text-sm text-zinc-500" />
+      <FormattedDate date={post.data.pubDate} class="text-sm text-zinc-600 dark:text-zinc-400" />
       <h1 class="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">{post.data.title}</h1>
       <div class="mt-4 flex flex-wrap gap-1.5">
         {post.data.tags.map((t) => <Tag>{t}</Tag>)}

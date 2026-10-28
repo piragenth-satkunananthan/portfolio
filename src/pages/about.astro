@@ -18,7 +18,7 @@ import { PROFILE, ABOUT, FOCUS_AREAS, SKILLS, EDUCATION, CERTIFICATIONS, SOCIALS
       />
       <p class="mt-5 font-semibold text-zinc-900 dark:text-zinc-100">{PROFILE.name}</p>
       <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{PROFILE.headline}</p>
-      <p class="mt-1 text-sm text-zinc-500">{PROFILE.location}</p>
+      <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{PROFILE.location}</p>
       {
         PROFILE.openToWork && (
           <p class="mt-2 inline-flex items-center gap-1.5 text-sm text-emerald-700 dark:text-emerald-400">
@@ -41,7 +41,7 @@ import { PROFILE, ABOUT, FOCUS_AREAS, SKILLS, EDUCATION, CERTIFICATIONS, SOCIALS
 
       <section class="mt-16">
         <SectionHeading title="What I work on" />
-        <div class="grid gap-4 sm:grid-cols-3">
+        <div class="grid gap-4 sm:grid-cols-3 md:grid-cols-1">
           {
             FOCUS_AREAS.map((area) => (
               <div class="flex flex-col rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
@@ -84,7 +84,7 @@ import { PROFILE, ABOUT, FOCUS_AREAS, SKILLS, EDUCATION, CERTIFICATIONS, SOCIALS
                 <h3 class="font-medium text-zinc-900 dark:text-zinc-100">{e.school}</h3>
                 <p class="text-sm">{e.degree}</p>
               </div>
-              <span class="shrink-0 text-sm text-zinc-500 tabular-nums">{e.period}</span>
+              <span class="shrink-0 text-sm text-zinc-600 dark:text-zinc-400 tabular-nums">{e.period}</span>
             </div>
           ))
         }
@@ -104,9 +104,9 @@ import { PROFILE, ABOUT, FOCUS_AREAS, SKILLS, EDUCATION, CERTIFICATIONS, SOCIALS
                   ) : (
                     <span class="font-medium text-zinc-900 dark:text-zinc-100">{c.title}</span>
                   )}
-                  <p class="text-sm text-zinc-500">{c.issuer}</p>
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400">{c.issuer}</p>
                 </div>
-                <span class="shrink-0 text-sm text-zinc-500 tabular-nums">{c.date}</span>
+                <span class="shrink-0 text-sm text-zinc-600 dark:text-zinc-400 tabular-nums">{c.date}</span>
               </li>
             ))
           }

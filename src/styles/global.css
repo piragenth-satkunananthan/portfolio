@@ -9,13 +9,39 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
+html.dark {
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #059669;
+  outline-offset: 3px;
+}
 
 /* Even out heading line breaks and avoid one-word last lines in body text. */
 h1, h2, h3 {
   text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 p, li, dd {
   text-wrap: pretty;
+}
+
+.prose {
+  overflow-wrap: anywhere;
+}
+
+.prose pre {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-wrap: normal;
 }

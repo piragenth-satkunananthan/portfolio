@@ -4,15 +4,16 @@ import FormattedDate from './FormattedDate.astro';
 
 interface Props {
   post: CollectionEntry<'blog'>;
+  headingLevel?: 'h2' | 'h3';
 }
-const { post } = Astro.props;
+const { post, headingLevel: Heading = 'h3' } = Astro.props;
 ---
 
 <li>
-  <a href={`/blog/${post.id}/`} class="group flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-6">
-    <FormattedDate date={post.data.pubDate} class="w-28 shrink-0 text-sm text-zinc-500 tabular-nums" />
+  <a href={`/blog/${post.id}/`} class="group flex flex-col gap-2 rounded-lg px-3 py-5 transition hover:bg-zinc-50 focus-visible:bg-zinc-50 dark:hover:bg-zinc-900 dark:focus-visible:bg-zinc-900 sm:flex-row sm:items-baseline sm:gap-6">
+    <FormattedDate date={post.data.pubDate} class="w-28 shrink-0 text-sm text-zinc-600 dark:text-zinc-400 tabular-nums" />
     <div>
-      <h3 class="font-medium text-zinc-900 group-hover:text-emerald-700 dark:text-zinc-100 dark:group-hover:text-emerald-400">{post.data.title}</h3>
+      <Heading class="font-medium text-zinc-900 group-hover:text-emerald-700 dark:text-zinc-100 dark:group-hover:text-emerald-400">{post.data.title}</Heading>
       <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{post.data.description}</p>
     </div>
   </a>

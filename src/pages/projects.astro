@@ -17,14 +17,17 @@ const other = projects.filter((p) => !p.data.featured);
     <a href={SOCIALS.github} target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:underline dark:text-emerald-400">GitHub</a>.
   </p>
 
-  <section class="mt-12 grid gap-4 md:grid-cols-2">
-    {featured.map((project) => <ProjectCard project={project} detailed />)}
+  <section class="mt-12">
+    <SectionHeading title="Featured projects" />
+    <div class="grid gap-4 md:grid-cols-2">
+      {featured.map((project) => <ProjectCard project={project} detailed />)}
+    </div>
   </section>
 
   {
     other.length > 0 && (
       <section class="mt-16">
-        <SectionHeading title="More" />
+        <SectionHeading title="More projects" />
         <div class="grid gap-4 md:grid-cols-2">
           {other.map((project) => <ProjectCard project={project} />)}
         </div>

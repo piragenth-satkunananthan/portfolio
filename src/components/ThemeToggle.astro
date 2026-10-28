@@ -1,8 +1,9 @@
 <button
   id="theme-toggle"
   type="button"
-  aria-label="Toggle dark mode"
-  class="rounded-md p-2 text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+  aria-label="Dark mode"
+  aria-pressed="false"
+  class="inline-flex size-11 shrink-0 items-center justify-center rounded-md text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
 >
   <svg class="hidden size-5 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4" />
@@ -14,8 +15,28 @@
 </button>
 
 <script>
-  document.getElementById('theme-toggle')?.addEventListener('click', () => {
-    const dark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  const toggle = document.getElementById('theme-toggle');
+  const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+  let preference: string | null = null;
+  try { preference = localStorage.getItem('theme'); } catch { /* Use the system preference. */ }
+  const applyTheme = (dark: boolean) => {
+    document.documentElement.classList.toggle('dark', dark);
+    toggle?.setAttribute('aria-pressed', String(dark));
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#09090b' : '#ffffff');
+  };
+  const followPreference = () => applyTheme(preference === 'dark' || (preference !== 'light' && systemTheme.matches));
+  followPreference();
+  toggle?.addEventListener('click', () => {
+    const dark = !document.documentElement.classList.contains('dark');
+    preference = dark ? 'dark' : 'light';
+    applyTheme(dark);
+    try { localStorage.setItem('theme', preference); } catch { /* Keep the choice for this page. */ }
+  });
+  systemTheme.addEventListener('change', followPreference);
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'theme' || event.key === null) {
+      preference = event.newValue;
+      followPreference();
+    }
   });
 </script>

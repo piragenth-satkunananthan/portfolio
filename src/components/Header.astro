@@ -10,17 +10,17 @@ const links = [
 const path = Astro.url.pathname;
 ---
 
-<header class="flex items-center justify-between border-b border-zinc-200 py-5 dark:border-zinc-800">
+<header class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-b border-zinc-200 py-4 dark:border-zinc-800">
   <a href="/" class="font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
     {PROFILE.name.split(' ')[0]}<span class="text-emerald-600 dark:text-emerald-400">.</span>
   </a>
-  <nav class="flex items-center gap-1 text-sm">
+  <nav aria-label="Main navigation" class="flex flex-wrap items-center gap-1 text-sm">
     {
       links.map(({ href, label }) => (
         <a
           href={href}
-          aria-current={path.startsWith(href) ? 'page' : undefined}
-          class="rounded-md px-3 py-2 text-zinc-600 transition hover:text-zinc-900 aria-[current=page]:text-emerald-600 dark:text-zinc-400 dark:hover:text-zinc-100 dark:aria-[current=page]:text-emerald-400"
+          aria-current={path.replace(/\/$/, '') === href ? 'page' : path.startsWith(`${href}/`) ? 'location' : undefined}
+          class="inline-flex min-h-11 items-center rounded-md px-2 text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-900 aria-[current]:bg-emerald-50 aria-[current]:text-emerald-700 sm:px-3 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100 dark:aria-[current]:bg-emerald-950 dark:aria-[current]:text-emerald-400"
         >
           {label}
         </a>
