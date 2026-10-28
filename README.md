@@ -27,6 +27,7 @@ npm run preview
 
 The site is fully static — no adapter needed.
 
+- **Cloudflare Workers:** build with `npm run build`, then deploy with Wrangler using `wrangler.jsonc`. Its `404-page` asset setting serves the generated `dist/404.html` for unknown URLs. Keep the Worker name in that file aligned with the existing Cloudflare Worker.
 - **Vercel:** import the GitHub repo; the Astro preset is detected automatically.
 - **Netlify:** build command `npm run build`, publish directory `dist`.
 
