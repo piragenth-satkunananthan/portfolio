@@ -7,14 +7,14 @@ import { PROFILE, ABOUT, FOCUS_AREAS, SKILLS, EDUCATION, CERTIFICATIONS, SOCIALS
 ---
 
 <BaseLayout title="About" description={`About ${PROFILE.name}: ${PROFILE.headline}, ${PROFILE.location}.`}>
-  <div class="grid gap-12 md:grid-cols-[16rem_1fr] md:gap-14">
-    <aside class="md:sticky md:top-10 md:self-start">
+  <div class="flex flex-wrap gap-12 [overflow-wrap:anywhere]">
+    <aside class="min-w-0 max-w-full basis-64 self-start">
       <img
         src={PROFILE.avatar}
         alt={PROFILE.name}
         width="240"
         height="240"
-        class="size-40 rounded-2xl object-cover ring-1 ring-zinc-200 md:size-60 dark:ring-zinc-800"
+        class="size-40 max-w-full rounded-2xl object-cover ring-1 ring-zinc-200 md:size-60 dark:ring-zinc-800"
       />
       <p class="mt-5 font-semibold text-zinc-900 dark:text-zinc-100">{PROFILE.name}</p>
       <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{PROFILE.headline}</p>
@@ -32,7 +32,7 @@ import { PROFILE, ABOUT, FOCUS_AREAS, SKILLS, EDUCATION, CERTIFICATIONS, SOCIALS
       </a>
     </aside>
 
-    <div class="min-w-0">
+    <div class="min-w-0 flex-[1_1_26rem]">
       <h1 class="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">About me</h1>
       <div class="mt-6 max-w-2xl space-y-4 leading-relaxed">
         {ABOUT.map((p) => <p>{p}</p>)}
@@ -79,8 +79,8 @@ import { PROFILE, ABOUT, FOCUS_AREAS, SKILLS, EDUCATION, CERTIFICATIONS, SOCIALS
         <SectionHeading title="Education" />
         {
           EDUCATION.map((e) => (
-            <div class="flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline">
-              <div>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+              <div class="min-w-0 grow basis-64">
                 <h3 class="font-medium text-zinc-900 dark:text-zinc-100">{e.school}</h3>
                 <p class="text-sm">{e.degree}</p>
               </div>
@@ -95,8 +95,8 @@ import { PROFILE, ABOUT, FOCUS_AREAS, SKILLS, EDUCATION, CERTIFICATIONS, SOCIALS
         <ul class="divide-y divide-zinc-200 dark:divide-zinc-800">
           {
             CERTIFICATIONS.map((c) => (
-              <li class="flex flex-col justify-between gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-6">
-                <div>
+              <li class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-3">
+                <div class="min-w-0 grow basis-64">
                   {c.url ? (
                     <a href={c.url} target="_blank" rel="noopener noreferrer" class="font-medium text-zinc-900 hover:text-emerald-700 dark:text-zinc-100 dark:hover:text-emerald-400">
                       {c.title} <span class="text-zinc-400">↗</span>

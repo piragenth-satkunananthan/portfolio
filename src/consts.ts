@@ -46,7 +46,7 @@ export const FOCUS_AREAS = [
 export const SOCIALS = {
   github: 'https://github.com/piragenth-satkunananthan',
   linkedin: 'https://www.linkedin.com/in/satkunananthan-piragenth/',
-  email: 'piragenthsatkunananthan@gmail.com',
+  email: 'contact@piragenth.dev',
 };
 
 export const EDUCATION = [
