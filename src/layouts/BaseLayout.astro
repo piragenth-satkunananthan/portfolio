@@ -4,19 +4,58 @@ import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, PROFILE, SOCIALS } from '../consts';
 
 interface Props {
   title?: string;
   description?: string;
   articleDate?: Date;
   noindex?: boolean;
+  // Social-sharing image path (site-rooted, e.g. '/og/blog-post.png'). Defaults to /og.png.
+  ogImage?: string;
+  // Additional JSON-LD objects merged with the site-wide Person + WebSite schemas.
+  jsonLd?: unknown[];
 }
 
-const { title, description = SITE_DESCRIPTION, articleDate, noindex = false } = Astro.props;
+const {
+  title,
+  description = SITE_DESCRIPTION,
+  articleDate,
+  noindex = false,
+  ogImage,
+  jsonLd = [],
+} = Astro.props;
+
 const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL('/avatar.jpg', Astro.site);
+const siteUrl = Astro.site!.href;
+const ogImageUrl = new URL(ogImage ?? '/og.png', Astro.site);
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: PROFILE.name,
+  url: siteUrl,
+  image: new URL('/avatar.jpg', Astro.site).href,
+  jobTitle: PROFILE.headline,
+  email: `mailto:${SOCIALS.email}`,
+  sameAs: [SOCIALS.github, SOCIALS.linkedin],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: PROFILE.location.split(',')[0].trim(),
+    addressCountry: 'LK',
+  },
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_TITLE,
+  url: siteUrl,
+  description: SITE_DESCRIPTION,
+};
+
+const structuredData = [personSchema, websiteSchema, ...jsonLd];
 ---
 
 <!doctype html>
@@ -42,9 +81,12 @@ const ogImage = new URL('/avatar.jpg', Astro.site);
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="generator" content={Astro.generator} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <script is:inline>
       (() => {
         let stored;

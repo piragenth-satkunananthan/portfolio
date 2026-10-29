@@ -14,6 +14,8 @@ const projects = defineCollection({
     order: z.number().default(99),
     tag: z.string().optional(),
     highlights: z.array(z.string()).default([]),
+    // Optional social-sharing image. When omitted, the site-wide /og.png is used.
+    ogImage: z.string().optional(),
   }),
 });
 
@@ -24,6 +26,8 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     tags: z.array(z.string()).default([]),
+    // Optional social-sharing image. When omitted, the site-wide /og.png is used.
+    ogImage: z.string().optional(),
   }),
 });
 
