@@ -12,9 +12,9 @@ import { PROFILE, ABOUT, FOCUS_AREAS, SKILLS, EDUCATION, CERTIFICATIONS, SOCIALS
       <img
         src={PROFILE.avatar}
         alt={PROFILE.name}
-        width="240"
-        height="240"
-        class="size-40 max-w-full rounded-2xl object-cover ring-1 ring-zinc-200 md:size-60 dark:ring-zinc-800"
+        width="210"
+        height="210"
+        class="size-40 max-w-full rounded-2xl object-cover ring-1 ring-zinc-200 md:size-52 dark:ring-zinc-800"
       />
       <p class="mt-5 font-semibold text-zinc-900 dark:text-zinc-100">{PROFILE.name}</p>
       <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{PROFILE.headline}</p>
@@ -53,7 +53,7 @@ import { PROFILE, ABOUT, FOCUS_AREAS, SKILLS, EDUCATION, CERTIFICATIONS, SOCIALS
                   rel="noopener noreferrer"
                   class="mt-auto pt-4 text-sm font-medium text-emerald-700 hover:underline dark:text-emerald-400"
                 >
-                  See {area.project.label}&nbsp;↗
+                  See {area.project.label}&nbsp;↗<span class="sr-only"> (opens in a new tab)</span>
                 </a>
               </div>
             ))
@@ -99,7 +99,7 @@ import { PROFILE, ABOUT, FOCUS_AREAS, SKILLS, EDUCATION, CERTIFICATIONS, SOCIALS
                 <div class="min-w-0 grow basis-64">
                   {c.url ? (
                     <a href={c.url} target="_blank" rel="noopener noreferrer" class="font-medium text-zinc-900 hover:text-emerald-700 dark:text-zinc-100 dark:hover:text-emerald-400">
-                      {c.title} <span class="text-zinc-400">↗</span>
+                      {c.title} <span class="text-zinc-400">↗</span><span class="sr-only"> (opens in a new tab)</span>
                     </a>
                   ) : (
                     <span class="font-medium text-zinc-900 dark:text-zinc-100">{c.title}</span>

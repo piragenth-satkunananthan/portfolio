@@ -3,7 +3,9 @@ title: FoodBridge
 summary: A food-rescue and circular-waste logistics platform connecting hotels and restaurants with verified charities, recyclers and volunteer couriers.
 tag: UN SDG 2 & 12
 stack: [React, Node.js, Express, MongoDB, Docker, GitHub Actions]
+languages: ["JavaScript"]
 repo: https://github.com/piragenth-satkunananthan/foodbridge
+demo: https://foodbridge.piragenth.dev
 featured: true
 order: 2
 highlights:

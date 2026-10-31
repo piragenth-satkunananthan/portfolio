@@ -27,7 +27,11 @@
 
   toggle?.addEventListener('click', () => {
     const dark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    try {
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    } catch {
+      /* Storage may be disabled; the theme still applies for this session. */
+    }
     themeColor?.setAttribute('content', dark ? '#09090b' : '#ffffff');
     sync();
   });

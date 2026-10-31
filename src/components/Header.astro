@@ -14,7 +14,7 @@ const path = Astro.url.pathname;
   <a href="/" class="font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
     {PROFILE.name.split(' ')[0]}<span class="text-emerald-600 dark:text-emerald-400">.</span>
   </a>
-  <nav class="flex items-center gap-1 text-sm">
+  <nav class="flex flex-wrap items-center justify-end gap-1 text-sm">
     {
       links.map(({ href, label }) => (
         <a

@@ -18,7 +18,7 @@ export const PROFILE = {
 
 // Longer story shown on the About page.
 export const ABOUT = [
-  "I'm Piragenth, a Bachelor of ICT undergraduate at South Eastern University of Sri Lanka, based in Jaffna. I focus on robotics, embedded systems, control systems, IoT and full-stack development.",
+  "I'm Piragenth, based in Jaffna. I study Information and Communication Technology at South Eastern University of Sri Lanka, and I spend most of my time building things that connect software to the physical world.",
   'I like working across the whole stack — from hardware up. On RideShield, a smart motorcycle helmet that reached the finals of IoTrix 2.0, that meant ESP32 firmware, a crash state machine driven by IMU and GPS data, camera nodes and a Kotlin Android app. On FoodBridge, it meant a MERN platform with five role-based portals, JWT authentication, Docker and CI.',
   "Maths is the other thread. I built a Java tool that animates 2×2 matrix transformations so eigenvectors become something you can see, and completed Imperial College London's Mathematics for Machine Learning: Linear Algebra course.",
   'Away from the keyboard I turn photos into laser-engraved portraits and pen-plotter art with G-code.',

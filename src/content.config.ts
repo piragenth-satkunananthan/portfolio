@@ -8,6 +8,9 @@ const projects = defineCollection({
     title: z.string(),
     summary: z.string(),
     stack: z.array(z.string()),
+    // Actual programming languages (used for structured data). `stack` may include
+    // hardware, platforms and tools, which are not valid `programmingLanguage` values.
+    languages: z.array(z.string()).default([]),
     repo: z.url(),
     demo: z.url().optional(),
     featured: z.boolean().default(false),
@@ -25,6 +28,8 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
+    // Optional revision date for `dateModified` in structured data.
+    updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
     // Optional social-sharing image. When omitted, the site-wide /og.png is used.
     ogImage: z.string().optional(),

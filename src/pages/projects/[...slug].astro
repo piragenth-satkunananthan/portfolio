@@ -16,7 +16,7 @@ interface Props {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, summary, stack, repo, demo, tag, highlights, ogImage } = project.data;
+const { title, summary, stack, languages, repo, demo, tag, highlights, ogImage } = project.data;
 
 const softwareSchema = {
   '@context': 'https://schema.org',
@@ -24,12 +24,13 @@ const softwareSchema = {
   name: title,
   description: summary,
   codeRepository: repo.toString(),
-  programmingLanguage: stack,
+  keywords: stack.join(', '),
+  ...(languages.length > 0 ? { programmingLanguage: languages } : {}),
   author: { '@type': 'Person', name: SITE_TITLE, url: Astro.site!.href },
 };
 ---
 
-<BaseLayout title={title} description={summary} ogImage={ogImage} jsonLd={[softwareSchema]}>
+<BaseLayout title={title} description={summary} ogType="article" ogImage={ogImage} jsonLd={[softwareSchema]}>
   <article class="mx-auto max-w-3xl">
     <a href="/projects" class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200">← All projects</a>
 

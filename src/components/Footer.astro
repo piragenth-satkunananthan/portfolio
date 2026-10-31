@@ -6,8 +6,8 @@ import { PROFILE, SOCIALS } from '../consts';
   <p>© {new Date().getFullYear()} {PROFILE.name}</p>
   <div class="flex flex-wrap gap-4">
     <a href={`mailto:${SOCIALS.email}`} class="hover:text-zinc-900 dark:hover:text-zinc-200">Email</a>
-    <a href={SOCIALS.github} target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200">GitHub</a>
-    <a href={SOCIALS.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200">LinkedIn</a>
+    <a href={SOCIALS.github} target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200">GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+    <a href={SOCIALS.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
     <a href="/rss.xml" class="hover:text-zinc-900 dark:hover:text-zinc-200">RSS</a>
   </div>
 </footer>

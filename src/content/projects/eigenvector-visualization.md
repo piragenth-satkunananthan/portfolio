@@ -2,6 +2,7 @@
 title: Eigenvector Visualization
 summary: Takes any 2×2 matrix, animates how it transforms 2D space in real time and draws the eigenvector spans that stay on their own line.
 stack: [Java, Linear Algebra]
+languages: ["Java"]
 repo: https://github.com/piragenth-satkunananthan/Eigen-Vector-Visualization
 featured: true
 order: 4

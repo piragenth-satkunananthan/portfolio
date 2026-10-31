@@ -1,5 +1,10 @@
 ## Development
 
+- `npm run dev` — local dev server at http://localhost:4321
+- `npm run build` — static build into `dist/`
+- `npm run check` — Astro + TypeScript diagnostics
+
+Always run `npm run build` before deploying so `dist/` matches `src/`.
 
 ## Documentation
 

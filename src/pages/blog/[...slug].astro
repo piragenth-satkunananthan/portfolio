@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Tag from '../../components/Tag.astro';
 import { SITE_TITLE } from '../../consts';
-import { getPosts } from '../../lib';
+import { getPosts, tagSlug } from '../../lib';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -16,7 +16,7 @@ interface Props {
 }
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, description, pubDate, tags, ogImage } = post.data;
+const { title, description, pubDate, updatedDate, tags, ogImage } = post.data;
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -24,6 +24,7 @@ const articleSchema = {
   headline: title,
   description,
   datePublished: pubDate.toISOString(),
+  dateModified: (updatedDate ?? pubDate).toISOString(),
   author: { '@type': 'Person', name: SITE_TITLE, url: Astro.site!.href },
   mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
   keywords: tags.join(', '),
@@ -44,7 +45,7 @@ const articleSchema = {
       <FormattedDate date={pubDate} class="text-sm text-zinc-600 dark:text-zinc-400" />
       <h1 class="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">{title}</h1>
       <div class="mt-4 flex flex-wrap gap-1.5">
-        {tags.map((t) => <Tag href={`/tags/${t}/`}>{t}</Tag>)}
+        {tags.map((t) => <Tag href={`/tags/${tagSlug(t)}/`}>{t}</Tag>)}
       </div>
     </header>
     <div class="prose prose-zinc mt-10 max-w-none dark:prose-invert prose-a:text-emerald-700 dark:prose-a:text-emerald-400 prose-pre:bg-zinc-900">

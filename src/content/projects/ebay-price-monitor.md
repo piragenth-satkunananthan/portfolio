@@ -2,7 +2,9 @@
 title: eBay Price Monitor
 summary: Scrapes eBay listings, tracks prices over time and visualises the history in an interactive dashboard.
 stack: [Python, Playwright, Streamlit, SQLite, Plotly, Docker]
+languages: ["Python"]
 repo: https://github.com/piragenth-satkunananthan/Ebay-price-monitor-scraper
+demo: https://ebay.piragenth.dev
 featured: true
 order: 3
 highlights:
